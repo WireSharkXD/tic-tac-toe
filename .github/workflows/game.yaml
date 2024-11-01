@@ -1,0 +1,22 @@
+name: Game
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: "*/5 * * * *"
+jobs:
+  Tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Set resource limits
+        run: |
+          sudo sh -c "ulimit -n 50000"
+      - name: Execute script
+        run: |
+          python game.py 157.245.98.164 22 10000
