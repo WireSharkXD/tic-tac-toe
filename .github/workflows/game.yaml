@@ -18,20 +18,17 @@ jobs:
       - name: Install requirements
         run: |
           pip install -r requirements.txt
-      - name: Install Tor and dependencies
+      - name: Install Tor
         run: |
-          sudo apt-get update
-          sudo apt-get install -y tor
-          sudo systemctl start tor
-          sudo systemctl enable tor
+          sudo apt update
+          sudo apt install -y tor
+      - name: Verify Tor Configuration
+        run: |
+          # Check Tor status
+          sudo systemctl status tor
 
-      # - name: Verify Tor Configuration
-      #   run: |
-      #     # Check Tor status
-      #     sudo systemctl status tor
-
-      #     # Verify Tor SOCKS proxy is running
-      #     curl -x socks5h://127.0.0.1:9050 https://api.ipify.org
+          # Verify Tor SOCKS proxy is running
+          curl -x socks5h://127.0.0.1:9050 https://api.ipify.org
       - name: Set resource limits
         run: |
           sudo sh -c "ulimit -n 50000"
