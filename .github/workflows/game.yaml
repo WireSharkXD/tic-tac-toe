@@ -25,9 +25,6 @@ jobs:
           sudo systemctl start tor
           sudo systemctl enable tor
 
-          # Install Python dependencies
-          pip install requests PySocks
-
       - name: Verify Tor Configuration
         run: |
           # Check Tor status
