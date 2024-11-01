@@ -25,13 +25,13 @@ jobs:
           sudo systemctl start tor
           sudo systemctl enable tor
 
-      - name: Verify Tor Configuration
-        run: |
-          # Check Tor status
-          sudo systemctl status tor
+      # - name: Verify Tor Configuration
+      #   run: |
+      #     # Check Tor status
+      #     sudo systemctl status tor
 
-          # Verify Tor SOCKS proxy is running
-          curl -x socks5h://127.0.0.1:9050 https://api.ipify.org
+      #     # Verify Tor SOCKS proxy is running
+      #     curl -x socks5h://127.0.0.1:9050 https://api.ipify.org
       - name: Set resource limits
         run: |
           sudo sh -c "ulimit -n 50000"
