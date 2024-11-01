@@ -1,7 +1,7 @@
 name: Game
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   schedule:
     - cron: "*/5 * * * *"
 jobs:
