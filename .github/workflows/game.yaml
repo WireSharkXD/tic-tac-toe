@@ -7,6 +7,7 @@ on:
 jobs:
   Tweet:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2
